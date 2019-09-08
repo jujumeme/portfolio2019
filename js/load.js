@@ -126,5 +126,3 @@ function whackTheMole() {
       startGame();
    });
 }
-addLoadEvent(clickMenu);
-addLoadEvent(whackTheMole);
