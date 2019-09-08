@@ -2,6 +2,48 @@ $('.navbarWrapper').load('navwrapper.html');
 $('.menuContainer').load('menu.html');
 $('footer').load('footer.html');
 
+// window.onload全站共同menu載入部分
+window.onload = function() {
+   $('.menuUl>li:nth-child(-n+4)').hover(
+      function() {
+         // console.log('uuuuu');
+         var no = $(this).index();
+         console.log(no);
+         // prettier-ignore
+         if (!$(this).hasClass('active')) {
+            $(this).children('span').addClass('activeYellow');
+            // 其他張BG圖淡出
+            $('.menuPattern>div').not($('.menuPattern>div').eq(no)).stop(true, true).fadeOut(200);
+            // 此BG圖淡入
+            $('.menuPattern>div').eq(no).stop(true, true).fadeIn(200).addClass('showPattern');
+
+            // 其他BG刪除active
+            $('.menuPattern>div').removeClass('active');
+            //此BG加入active
+            $('.menuPattern>div').eq(no).addClass('active');
+
+            $(this).find('span').addClass('yellowBlock');
+         }
+      },
+      function() {
+         // prettier-ignore
+         $(this).find('span').removeClass('yellowBlock');
+      }
+   );
+};
+
+// window.onload的調用
+function addLoadEvent(func) {
+   var oldonload = window.onload;
+   if (typeof window.onload != 'function') {
+      window.onload = func;
+   } else {
+      window.onload = function() {
+         oldonload();
+         func();
+      };
+   }
+}
 // 按選單
 function clickMenu() {
    $('.navbarWrapper .flower>img').click(function() {
@@ -83,49 +125,6 @@ function whackTheMole() {
    $('.index main .button').on('click', function() {
       startGame();
    });
-}
-
-// window.onload全站共同menu載入部分
-window.onload = function() {
-   $('.menuUl>li:nth-child(-n+4)').hover(
-      function() {
-         // console.log('uuuuu');
-         var no = $(this).index();
-         console.log(no);
-         // prettier-ignore
-         if (!$(this).hasClass('active')) {
-            $(this).children('span').addClass('activeYellow');
-            // 其他張BG圖淡出
-            $('.menuPattern>div').not($('.menuPattern>div').eq(no)).stop(true, true).fadeOut(200);
-            // 此BG圖淡入
-            $('.menuPattern>div').eq(no).stop(true, true).fadeIn(200).addClass('showPattern');
-
-            // 其他BG刪除active
-            $('.menuPattern>div').removeClass('active');
-            //此BG加入active
-            $('.menuPattern>div').eq(no).addClass('active');
-
-            $(this).find('span').addClass('yellowBlock');
-         }
-      },
-      function() {
-         // prettier-ignore
-         $(this).find('span').removeClass('yellowBlock');
-      }
-   );
-};
-
-// window.onload的調用
-function addLoadEvent(func) {
-   var oldonload = window.onload;
-   if (typeof window.onload != 'function') {
-      window.onload = func;
-   } else {
-      window.onload = function() {
-         oldonload();
-         func();
-      };
-   }
 }
 addLoadEvent(clickMenu);
 addLoadEvent(whackTheMole);
