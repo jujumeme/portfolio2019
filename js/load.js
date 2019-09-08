@@ -1,5 +1,16 @@
 $('.navbarWrapper').load('navwrapper.html');
-$('.menuContainer').load('menu.html');
+$('.menuContainer').load('menu.html', function() {
+   $('.navbarWrapper .flower>img').click(function() {
+      $(this).toggleClass('rotateflower');
+      if (!$('.menuContainer').hasClass('show')) {
+         $('.menuContainer').addClass('show');
+         console.log('1');
+      } else {
+         $('.menuContainer ').removeClass('show');
+         console.log('2');
+      }
+   });
+});
 $('footer').load('footer.html');
 
 // window.onload全站共同menu載入部分
@@ -43,19 +54,6 @@ function addLoadEvent(func) {
          func();
       };
    }
-}
-// 按選單
-function clickMenu() {
-   $('.navbarWrapper .flower>img').click(function() {
-      $(this).toggleClass('rotateflower');
-      if (!$('.menuContainer').hasClass('show')) {
-         $('.menuContainer').addClass('show');
-         console.log('1');
-      } else {
-         $('.menuContainer ').removeClass('show');
-         console.log('2');
-      }
-   });
 }
 
 // 打地鼠function
