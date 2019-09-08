@@ -1,0 +1,1 @@
+$('.wrapper>.row>div').addClass('col-xl-10 col-lg-10 col-md-12 col-12');

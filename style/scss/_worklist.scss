@@ -1,0 +1,164 @@
+[aria-label='Page navigation example'] {
+   padding-bottom: 15px;
+}
+
+.page-item:not(.pageIcon) a {
+   border: none;
+}
+
+.page-link {
+   color: $main-black;
+   border-color: #fff;
+}
+
+.page-link:focus {
+   box-shadow: none;
+}
+
+.page-link:hover {
+   border-color: #fff;
+   color: $main-black;
+   background-color: #fff;
+}
+
+.page-item:first-child .page-link,
+.page-item:last-child .page-link {
+   border-radius: 0;
+   padding: 10px 15px;
+   background-image: none;
+   background-color: #fff;
+}
+.page-item:first-child .page-link {
+   margin-right: 50px;
+}
+.page-item:last-child .page-link {
+   margin-left: 50px;
+}
+
+.page-item:first-child [aria-hidden='true']::before,
+.page-item:last-child [aria-hidden='true']::after {
+   content: '';
+   display: inline-block;
+   width: 15px;
+   height: 15px;
+}
+
+.page-item:first-child [aria-hidden='true']::before {
+   background-image: url(../../image/common/left_arrow_black.svg);
+}
+
+.page-item:last-child [aria-hidden='true']::after {
+   background-image: url(../../image/common/black_right_arrow.svg);
+}
+.worklist {
+   h2.pageTitle {
+      margin-bottom: 20px;
+   }
+   .filterContent {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 70px;
+   }
+   #filter {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: $main-space1;
+      button {
+         border: none;
+         background-color: #fff;
+         text-transform: capitalize;
+         letter-spacing: $letter-spacing2;
+         margin: 0 20px;
+         position: relative;
+         z-index: 1;
+         span {
+            @extend %highlight;
+            transition: 0.5s;
+         }
+         a {
+            color: $main-black;
+         }
+         &:hover span {
+            width: 100%;
+         }
+      }
+   }
+
+   .listItem {
+      width: 30%;
+      margin: 0 1.5% 3%;
+      border: 3px solid rgba(0, 0, 0, 0);
+      position: relative;
+      overflow: hidden;
+      &:hover {
+         border: 3px solid $main-pink;
+         img {
+            transform: scale(1.2);
+         }
+      }
+      a {
+         display: inline-block;
+      }
+      img {
+         width: 100%;
+         height: auto;
+         transition: 0.5s;
+      }
+   }
+}
+@media (max-width: 992px) {
+   //------------------------------ setting
+   .worklist {
+      .listItem {
+         width: 47%;
+         margin-bottom: 15px;
+      }
+      .filterContent {
+         margin-bottom: $main-space2;
+      }
+   }
+}
+@media (max-width: 600px) {
+   .worklist {
+      .filterContainer {
+         width: 35%;
+         display: inline-block;
+         position: fixed;
+         text-align: left;
+         #filter {
+            display: block;
+            button {
+               margin: 0 0 8px 0;
+               font-size: $content-size2;
+               display: block;
+            }
+         }
+      }
+      .filterContent {
+         width: 62%;
+         display: inline-block;
+         margin-left: 38%;
+         .listItem {
+            width: 100%;
+            margin: 0 0 $main-space1 0;
+         }
+      }
+      .p0 {
+         position: relative;
+      }
+   }
+   .page-item:first-child .page-link {
+      margin-right: 15px;
+      padding: 5px 7px;
+   }
+   .page-item:last-child .page-link {
+      margin-left: 15px;
+      padding: 5px 7px;
+   }
+}
+@media (max-width: 600px) {
+   .worklist .filterContent {
+      margin-bottom: $main-space1;
+   }
+}

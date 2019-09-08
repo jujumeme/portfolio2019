@@ -1,0 +1,103 @@
+//------------------------ cursor:pointer
+.button:hover,
+.flower > img,
+.worklist .listItem a:hover,
+#filter button a,
+#filter button,
+.page-link:not(:disabled):not(.disabled),
+.card-img {
+   cursor: pointer;
+}
+//-------------------------- 繼承區 (@extend)
+%blackarrow {
+   width: 25px;
+   height: 2.5px;
+   margin-bottom: 3px;
+   display: inline-block;
+   position: relative;
+   background-color: $main-black;
+   transition: 0.5s;
+   transform-origin: 0 0;
+}
+%pseudoAfter {
+   margin-left: 15px;
+   &::after {
+      right: -10px;
+      transform: rotate(-135deg);
+      top: 2px;
+   }
+}
+%pseudoCommon {
+   content: '';
+   display: inline-block;
+   background-color: $main-black;
+   width: 12px;
+   height: 2.5px;
+   position: absolute;
+   transition: 0.5s;
+   transform-origin: 0 0;
+}
+.buttonWrapper {
+   text-align: center;
+   margin: 50px auto 30px;
+   .button {
+      letter-spacing: $letter-spacing2;
+      padding: 5px 20px;
+      transition: 0.5s;
+      font-weight: 700;
+      color: $main-black;
+      text-transform: capitalize;
+      background-image: linear-gradient(to right, #fff, #fff 64%, $main-black 65%, $main-black);
+      background-size: 300%;
+      border: 2.5px solid $main-black;
+      &:hover {
+         color: #fff !important;
+         background-position: right center;
+      }
+      span {
+         @extend %blackarrow;
+      }
+      .before {
+         margin-right: 15px;
+         &::before {
+            left: 0px;
+            transform: rotate(-45deg);
+            top: 0px;
+         }
+      }
+      .after {
+         @extend %pseudoAfter;
+      }
+   }
+
+   .button .after::after,
+   .button .before::before {
+      @extend %pseudoCommon;
+   }
+   .button:hover span,
+   .button:hover .after::after,
+   .button:hover .before::before {
+      background-color: #fff;
+   }
+}
+
+@media (max-width: 600px) {
+   %spanHeight-s {
+      height: 2px;
+   }
+   %after-s {
+      height: 2px;
+      right: -12px;
+   }
+   .button {
+      font-size: $content-size2;
+      padding: 10px 15px;
+      border: 2px solid $main-black;
+      span {
+         @extend %spanHeight-s;
+      }
+      .after::after {
+         @extend %after-s;
+      }
+   }
+}

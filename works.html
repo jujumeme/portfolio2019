@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+      <meta name="author" content="Julie wu,吳珮暄" />
+      <meta name="description" content="吳珮暄個人作品集網站" />
+      <title>Julie wu Portfolio</title>
+      <link rel="icon" href="image/common/favicon.ico" type="image/x-icon" />
+      <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC:400|Karla:700&display=swap" rel="stylesheet" />
+      <link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
+      <link rel="stylesheet" href="style/css/style.css" />
+   </head>
+   <body>
+      <div class="container-fluid worklist">
+         <div class="container">
+            <!--menu button-->
+            <div class="container-fluid navbarWrapper"></div>
+            <!--menu content-->
+            <div class="menuContainer container-fluid"></div>
+
+            <!--content-->
+            <h2 class="pageTitle">
+               <span>works</span>
+            </h2>
+            <div class="container p0">
+               <!--篩選鈕-->
+               <div class="filterContainer">
+                  <div class="controls" id="filter">
+                     <button type="button" class="control" data-filter="all"><span></span>all</button>
+                     <button type="button" class="control" data-filter=".uiux"><span></span>ui/ux</button>
+                     <button type="button" class="control" data-filter=".graphic"><span></span>graphic</button>
+                     <button type="button" class="control" data-filter=".product"><span></span>product</button>
+                     <button type="button"><span></span><a href="https://codepen.io/dashboard/" target="_blank">side project</a></button>
+                  </div>
+               </div>
+
+               <!--Main content   以js將物件放入filterContent內-->
+               <div class="filterContent" id="filterContent">
+                  <!-- <div class="mix listItem gallery">
+                     <figure><img src="image/worklist/walkintaipei.jpg" alt="" /></figure>
+                     <div class="overlayBG"></div>
+                     <figcaption>walk in taipei</figcaption>
+                  </div> -->
+               </div>
+               <nav aria-label="Page navigation example">
+                  <ul class="pagination justify-content-center">
+                     <li class="page-item pageIcon">
+                        <a class="page-link button" href="#" aria-label="Previous">
+                           <div aria-hidden="true"></div>
+                        </a>
+                     </li>
+                     <li class="page-item">
+                        <a class="page-link" href="works.html">1</a>
+                     </li>
+                     <!-- <li class="page-item"><a class="page-link" href="#">2</a></li>
+                     <li class="page-item"><a class="page-link" href="#">3</a></li>
+                     <li class="page-item"><a class="page-link" href="#">4</a></li>
+                     <li class="page-item"><a class="page-link" href="#">5</a></li> -->
+                     <li class="page-item pageIcon">
+                        <a class="page-link button" href="#" aria-label="Next">
+                           <div aria-hidden="true"></div>
+                        </a>
+                     </li>
+                  </ul>
+               </nav>
+            </div>
+            <footer></footer>
+         </div>
+      </div>
+      <script src="js/jquery-3.1.0.min.js"></script>
+      <script src="js/load.js"></script>
+      <script src="js/mixitup.min.js"></script>
+      <script src="js/filter.js"></script>
+   </body>
+</html>

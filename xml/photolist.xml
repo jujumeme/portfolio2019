@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <photo>
+    <src>mirror_woman</src> <!-- 圖片來源--><!-- 連結來源-->
+  </photo>
+  <photo>
+    <src>womenHair</src>
+  </photo>
+  <photo>
+    <src>asian_face</src>
+  </photo>
+  <photo>
+    <src>blackMature</src>  
+  </photo>
+  <photo>
+    <src>robot_women</src>  
+  </photo>
+</list>

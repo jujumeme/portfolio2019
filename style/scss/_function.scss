@@ -1,0 +1,31 @@
+$fullH: 100vh;
+@function makeUpperH($upperHeight: 35vh) {
+   @return ($fullH - $upperHeight);
+}
+
+@function divideUpperH($lowerHeight: 40vh) {
+   @return ($fullH - $lowerHeight) / 3;
+}
+
+@function topUpper() {
+   @return divideUpperH() * 2;
+}
+
+// walkintaipei 客製app button color
+$appColor: (
+   appGreen: #37b9b4,
+   appPurple: #8ca0c8,
+   appPink: #f0827d,
+   appYellow: #f8c82c,
+);
+@each $name, $color in $appColor {
+   .#{$name} .button {
+      border-color: $color !important;
+      color: $color !important;
+      background-image: linear-gradient(to right, #fff, #fff 64%, $color 65%, $color) !important;
+   }
+   .#{$name} .button .after::after,
+   .#{$name} .button span {
+      background-color: $color !important;
+   }
+}

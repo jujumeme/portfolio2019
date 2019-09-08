@@ -1,0 +1,183 @@
+// menu setting
+.menuContainer {
+   height: 100vh;
+   position: fixed;
+   z-index: 9;
+   background-color: #fff;
+   right: -100%;
+   top: 0;
+   padding: 0;
+   transition: 0.7s;
+   visibility: hidden;
+   &.show {
+      right: 0;
+      visibility: visible;
+   }
+   > .container-fluid {
+      height: 100%;
+      position: relative;
+      padding: 0;
+      overflow: hidden;
+      .menuPattern {
+         width: 70%;
+         height: 100vh;
+         float: left;
+         position: relative;
+         background-color: #fff;
+         [class^='pattern'] {
+            width: 100%;
+            height: 100%;
+            background-repeat: repeat;
+            background-size: 100px 100px;
+            background-position: 0 0;
+            position: absolute;
+            animation: menuAni 12s linear infinite;
+            &.showPattern {
+               animation: menuAni 12s linear infinite;
+            }
+         }
+         .pattern1 {
+            background-image: url(../../image/menu/menuPatternCircle.jpg);
+            z-index: 2;
+            //初始進入就是這張圖
+         }
+         .pattern2 {
+            background-image: url(../../image/menu/menuPatternX.jpg);
+         }
+         .pattern3 {
+            background-image: url(../../image/menu/menuPatternSquare3.jpg);
+         }
+         .pattern4 {
+            background-image: url(../../image/menu/cube_unit.jpg);
+            background-size: 75px 130px;
+         }
+      }
+      .menuUl {
+         width: 30%;
+         height: 100%;
+         padding: 100px 0 0 $main-space2;
+         float: left;
+         > li {
+            font-size: $rwd-h2Size2;
+            line-height: $lineheight-content1;
+            margin: 15px 0;
+            a {
+               display: inline-block;
+               color: $main-black;
+               text-transform: capitalize;
+               font-family: 'Karla', serif;
+               position: relative;
+               span {
+                  @extend %highlight;
+                  transition: 0.5s;
+                  &.yellowBlock {
+                     width: 100%;
+                  }
+               }
+            }
+            li {
+               float: left;
+               margin-right: $main-space1;
+               a img {
+                  width: 20px;
+               }
+            }
+         }
+      }
+   }
+}
+
+@keyframes menuAni {
+   0% {
+   }
+   100% {
+      background-position: -1200px -1300px;
+   }
+}
+//------------------------------選單按鈕 setting
+.navbarWrapper {
+   width: 300px;
+   padding: 0;
+   display: inline-block;
+   right: 0;
+   position: fixed;
+   z-index: 10;
+   #pinkBlock {
+      position: absolute;
+      top: -12px;
+      right: -5px;
+      width: 240px;
+      height: 96px;
+   }
+   .flower {
+      position: absolute;
+      right: 15px;
+      text-align: right;
+      display: inline-block;
+      margin-top: 11px;
+      > img {
+         width: 47%;
+         height: 47%;
+         transform: rotate(0deg);
+         transition: 1s;
+         &.rotateflower {
+            transform: rotate(720deg);
+         }
+      }
+   }
+}
+@media (max-width: 992px) {
+   .menuContainer {
+      > .container-fluid {
+         .menuPattern {
+            width: 65%;
+         }
+         .menuUl {
+            width: 35%;
+         }
+      }
+   }
+}
+@media (max-width: 992px) and (orientation: landscape) {
+   .navbarWrapper {
+      #pinkBlock {
+         top: -25px;
+         right: -20px;
+      }
+      .flower {
+         > img {
+            width: 40%;
+            height: 40%;
+         }
+      }
+   }
+}
+@media (max-width: 768px) {
+   .menuContainer {
+      > .container-fluid {
+         .menuPattern {
+            width: 20%;
+         }
+         .menuUl {
+            width: 80%;
+         }
+      }
+   }
+}
+
+@media (max-width: 576px) {
+   .navbarWrapper {
+      #pinkBlock {
+         top: -40px;
+         right: -47px;
+      }
+      .flower {
+         > img {
+            width: 30%;
+            height: 30%;
+            margin-right: -5px;
+            margin-top: -2.5px;
+         }
+      }
+   }
+}

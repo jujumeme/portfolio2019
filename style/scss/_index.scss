@@ -1,0 +1,551 @@
+@keyframes floatLeafAni {
+   0% {
+      transform: rotate(-5deg) translateX(-50%);
+   }
+   50% {
+      transform: rotate(0deg) translateX(-50%);
+   }
+   100% {
+      transform: rotate(5deg) translateX(-50%);
+   }
+}
+.index {
+   position: relative;
+   .indexContainer {
+      padding: 0;
+      .upperScene {
+         height: makeUpperH(35vh);
+         position: relative;
+         overflow: hidden;
+         z-index: 3;
+         .grass1 {
+            width: 33%;
+            position: relative;
+            top: 50%;
+            transform: translateY(-45%);
+            float: left;
+            .gridImg1 {
+               width: 85%;
+               height: 50vh;
+               max-height: 50vh;
+               margin: 0 0 0 auto;
+               img:nth-of-type(1) {
+                  width: 90%;
+               }
+               img:nth-of-type(2) {
+                  width: 45%;
+                  position: absolute;
+                  top: 15%;
+                  left: 30%;
+                  transform: translateX(-50%);
+                  animation: floatLeafAni 2s linear infinite alternate;
+               }
+               p {
+                  color: rgb(210, 0, 0);
+                  position: absolute;
+                  left: 40%;
+                  top: 55%;
+                  font-family: 'Lobster', cursive;
+                  font-size: 1.2rem;
+                  text-indent: -25px;
+                  transform: rotate(-7.5deg);
+                  margin: 20px 0 0;
+                  line-height: 1.5;
+               }
+               .dp600 {
+                  display: none;
+               }
+            }
+         }
+         main {
+            width: 33%;
+            float: left;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            .indexTitle {
+               height: 25vh;
+               text-align: center;
+               color: $main-black;
+               background-image: url(../../image/index/yellowBG.png);
+               background-size: contain;
+               background-repeat: no-repeat;
+               background-position: center;
+               img {
+                  width: 80%;
+                  margin-top: 30px;
+               }
+            }
+            .buttonWrapper {
+               margin-bottom: 0;
+               .button {
+                  border-color: $main-pink;
+                  background: $main-pink;
+                  color: #fff !important;
+               }
+            }
+         }
+      }
+      .lowerScene {
+         height: 35vh;
+         position: relative;
+         background-color: $main-halfpink;
+         > ul {
+            width: 102vw;
+            height: 100vh;
+            margin: 0;
+            position: absolute;
+            bottom: 0;
+            transform: translateX(-2%);
+            z-index: 2;
+            overflow: hidden;
+            background-color: transparent;
+            .hole6 {
+               position: absolute;
+            }
+            > li {
+               width: 15%;
+               display: inline-block;
+               > div {
+                  position: relative;
+                  overflow: hidden;
+                  .smile {
+                     width: 100%;
+                     transform: translateY(100%);
+                     position: relative;
+                     transition: 0.5s;
+                  }
+                  .smile.up {
+                     transform: translateY(0%);
+                     z-index: 4;
+                  }
+                  .hole {
+                     width: 100%;
+                     position: absolute;
+                     left: 0;
+                     bottom: 0;
+                     z-index: 1;
+                     opacity: 0.4;
+                  }
+               }
+            }
+         }
+      }
+   }
+   footer {
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translate(-50%);
+      z-index: 4;
+   }
+}
+
+@media (max-aspect-ratio: 1280 / 500) {
+   .index {
+      .indexContainer {
+         .lowerScene {
+            > ul {
+               .hole1,
+               .hole3,
+               .hole5 {
+                  margin-right: 2%;
+                  transform: translateY(45vh);
+               }
+               .hole2,
+               .hole4,
+               .hole6 {
+                  margin-right: 2%;
+                  transform: translateY(63vh);
+               }
+            }
+         }
+      }
+   }
+}
+
+@media (max-aspect-ratio: 1366 / 768) {
+   .index {
+      .indexContainer {
+         .lowerScene {
+            > ul {
+               .hole1,
+               .hole3,
+               .hole5 {
+                  transform: translateY(50vh);
+               }
+               .hole2,
+               .hole4,
+               .hole6 {
+                  transform: translateY(65vh);
+               }
+            }
+         }
+      }
+   }
+}
+
+@media (max-aspect-ratio: 1280 / 950) {
+   .index {
+      .indexContainer {
+         .lowerScene {
+            > ul {
+               .hole1,
+               .hole3,
+               .hole5 {
+                  transform: translateY(55vh);
+               }
+               .hole2,
+               .hole4,
+               .hole6 {
+                  transform: translateY(70vh);
+               }
+            }
+         }
+      }
+   }
+}
+@keyframes floorLeafAni {
+   0% {
+      transform: rotate(-5deg) translateX(-30%);
+   }
+   50% {
+      transform: rotate(0deg) translateX(-30%);
+   }
+   100% {
+      transform: rotate(7deg) translateX(-30%);
+   }
+}
+@media (orientation: landscape) {
+   .index {
+      .indexContainer {
+         .grass2portrait {
+            display: block;
+            width: 33%;
+            height: 65vh;
+            position: absolute;
+            right: 0;
+            top: 0vh;
+            .imgGroup {
+               img:nth-child(1) {
+                  width: 80%;
+                  position: absolute;
+                  bottom: 0px;
+                  transform: translate(6%, -10%);
+               }
+               img:nth-child(2) {
+                  width: 30%;
+                  position: absolute;
+                  left: 35%;
+                  bottom: 0;
+                  transform-origin: center bottom;
+                  transform: translateX(-30%);
+                  animation: floorLeafAni 3s linear infinite alternate;
+               }
+            }
+         }
+      }
+   }
+}
+@media (orientation: portrait) {
+   .index {
+      .indexContainer {
+         .lowerScene {
+            > ul {
+               > li {
+                  width: 25%;
+                  &.hole2 {
+                     margin-right: 0;
+                     transform: translateY(65vh);
+                  }
+                  &.hole4 {
+                     position: absolute;
+                     margin-right: 0;
+                     transform: translateY(65vh);
+                  }
+                  &.hole6 {
+                     transform: translate(100%, 55vh);
+                  }
+               }
+            }
+         }
+      }
+   }
+}
+@media (min-width: 2560px) {
+   .index {
+      .indexContainer {
+         .upperScene {
+            main {
+               .indexTitle {
+                  height: 300px;
+               }
+            }
+            .grass1 {
+               .gridImg1 {
+                  p {
+                     font-size: 2rem;
+                     bottom: 28%;
+                  }
+               }
+            }
+         }
+      }
+   }
+}
+@media (max-width: 1440px) and (orientation: portrait) {
+   .index {
+      .indexContainer {
+         .upperScene {
+            height: makeUpperH(40vh);
+            main {
+               width: 100%;
+               height: divideUpperH(40vh);
+               float: none;
+               top: auto;
+               transform: translateY(0);
+               .indexTitle {
+                  margin-top: $main-space2;
+                  height: 100%;
+                  img {
+                     width: 50%;
+                  }
+               }
+            }
+            .grass1 {
+               width: 50%;
+               height: divideUpperH();
+               float: none;
+               top: 5%;
+               transform: translateY(0);
+               .gridImg1 {
+                  width: 100%;
+                  transform: translate(10%, -5%);
+                  height: auto;
+                  img:nth-of-type(1) {
+                     width: 70%;
+                  }
+                  img:nth-of-type(2) {
+                     left: 20%;
+                  }
+                  p {
+                     bottom: 17%;
+                  }
+               }
+            }
+         }
+         .grass2portrait {
+            display: block;
+            width: 50vw;
+            height: divideUpperH();
+            position: absolute;
+            right: 0;
+            top: 40vh;
+            .imgGroup {
+               img:nth-child(1) {
+                  width: 90%;
+                  position: absolute;
+                  bottom: 0px;
+                  transform: translate(6%, -8%);
+               }
+               img:nth-child(2) {
+                  width: 40%;
+                  position: absolute;
+                  left: 35%;
+                  bottom: 0;
+                  transform-origin: center bottom;
+                  transform: translateX(-30%);
+                  animation: floorLeafAni 3s linear infinite alternate;
+               }
+            }
+         }
+         .lowerScene {
+            height: 40vh;
+         }
+      }
+   }
+}
+@media (max-width: 1024px) and (min-width: 768px) and (orientation: portrait) {
+   .index {
+      .indexContainer {
+         .upperScene {
+            height: makeUpperH(35vh);
+            .grass1,
+            main {
+               height: divideUpperH(35vh);
+            }
+         }
+         .grass2portrait {
+            height: divideUpperH(35vh);
+            top: 43.33333vh;
+         }
+         .lowerScene {
+            height: 35vh;
+         }
+      }
+   }
+}
+
+@media (max-width: 992px) {
+   .index {
+      .indexContainer {
+         .upperScene {
+            main {
+               .indexTitle {
+                  img {
+                     margin-top: 20px;
+                  }
+               }
+            }
+         }
+      }
+   }
+}
+@media (max-width: 992px) and (orientation: landscape) {
+   .index {
+      .indexContainer {
+         .upperScene {
+            height: makeUpperH(45vh);
+            .grass1 {
+               .gridImg1 {
+                  p {
+                     font-size: $content-size2;
+                  }
+               }
+            }
+            main {
+               .indexTitle {
+                  height: 100px;
+               }
+               .buttonWrapper {
+                  margin-top: 0;
+                  .button {
+                     font-size: $content-size2;
+                  }
+               }
+            }
+         }
+         .grass2portrait {
+            height: 55vh;
+            .imgGroup img:nth-child(1) {
+               transform: translate(0px);
+            }
+         }
+         .lowerScene {
+            height: 45vh;
+            > ul {
+               .hole1,
+               .hole3,
+               .hole5 {
+                  transform: translateY(45vh);
+               }
+               .hole2,
+               .hole4,
+               .hole6 {
+                  transform: translateY(63vh);
+               }
+            }
+         }
+      }
+   }
+}
+
+@media (max-width: 600px) and (orientation: portrait) {
+   .index {
+      .indexContainer {
+         .upperScene {
+            main {
+               .indexTitle {
+                  margin-top: 20px;
+                  height: 100px;
+               }
+               .buttonWrapper {
+                  margin: 0;
+               }
+            }
+            .grass1 {
+               width: 65%;
+               .gridImg1 {
+                  transform: translate(0);
+                  img:nth-of-type(1) {
+                     width: 60%;
+                  }
+                  img:nth-of-type(2) {
+                     width: 38%;
+                     left: 30%;
+                  }
+                  p {
+                     display: none;
+                  }
+                  .dp600 {
+                     font-size: $content-size2;
+                     display: block;
+                     transform: rotate(-7.5deg) translate(20px, 0);
+                  }
+               }
+            }
+         }
+         .lowerScene {
+            > ul {
+               .hole5 {
+                  transform: translateY(57vh);
+               }
+               > li {
+                  width: 30%;
+                  &.hole2,
+                  &.hole4 {
+                     margin-left: -10%;
+                  }
+                  &.hole6 {
+                     margin-left: -10%;
+                     transform: translate(100%, 57vh);
+                  }
+               }
+            }
+         }
+      }
+   }
+}
+@media (max-width: 600px) and (orientation: landscape) {
+   .index {
+      .indexContainer {
+         .upperScene {
+            .grass1 {
+               width: 30%;
+               .gridImg1 {
+                  p {
+                     top: 42%;
+                  }
+               }
+            }
+            main {
+               width: 40%;
+            }
+         }
+         .lowerScene {
+            > ul {
+               > li {
+                  width: 17%;
+                  margin-left: -2.5%;
+               }
+            }
+         }
+      }
+   }
+}
+
+@media (max-width: 320px) {
+   .index {
+      .indexContainer {
+         .upperScene {
+            .grass1 {
+               .gridImg1 {
+                  p {
+                     left: 35%;
+                  }
+               }
+            }
+         }
+      }
+   }
+}

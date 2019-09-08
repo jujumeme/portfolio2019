@@ -1,0 +1,251 @@
+@import 'variable';
+// 使用@each前的寫法
+// .tab-pane:nth-of-type(1) .button {
+//     border-color: $appGreen;
+//     color: $appGreen !important;
+//     background-image: linear-gradient(to right, #fff, #fff 64%, $appGreen 65%, $appGreen);
+// }
+// .tab-pane:nth-of-type(1) .button .after::after,
+// .tab-pane:nth-of-type(1) .button span {
+//     background-color: $appGreen;
+// }
+.tabContainer {
+   height: 500px;
+   padding-top: 30px;
+   position: relative;
+   margin-bottom: 150px;
+   .tab-pane {
+      position: relative;
+      .buttonWrapper {
+         .button {
+            width: 100%;
+            display: block;
+         }
+      }
+   }
+}
+.tab-pane .button:hover .after,
+.tab-pane .button:hover .after::after {
+   background-color: #fff !important;
+}
+
+.tab-pane .button:hover {
+   color: #fff !important;
+}
+
+.tabRow .col-xl-5 {
+   position: relative;
+   left: 15%;
+}
+
+.tabcontent .pageSliderTitle {
+   margin-top: $main-space1;
+}
+
+.tabGallery {
+   display: none;
+}
+
+.demoImg {
+   display: block;
+   width: 65%;
+   height: 500px;
+   position: absolute;
+   top: -40%;
+   right: calc(-65% - 30px);
+   text-align: center;
+}
+
+.walkIconWrapper img,
+.demoImg img {
+   width: 100%;
+   height: auto;
+}
+
+.nav-item img {
+   width: 25px;
+   height: auto;
+}
+
+.col-xl-1 {
+   padding: 0;
+}
+
+.showImgMobile {
+   text-align: center;
+}
+
+.showImgMobile img {
+   width: 85%;
+   height: auto;
+}
+
+.videoWrapper {
+   text-align: center;
+}
+
+video {
+   width: 100%;
+   height: auto;
+   border: 4px solid #fff;
+}
+
+.colorPlan {
+   margin-bottom: 200px;
+}
+
+.colorPlan .col-xl-10 {
+   margin: 0 auto;
+}
+
+.colorPlan .colorRow {
+   justify-content: center;
+}
+
+.colorPlan .colorWrapper {
+   margin-top: $main-space2;
+}
+
+.colorPlan .colorWrapper > div {
+   margin-bottom: 20px;
+}
+
+.colorPlan .color {
+   display: inline-block;
+   width: 25px;
+   height: 25px;
+   border-radius: 50%;
+   margin-right: 15px;
+}
+
+.colorPlan .colorTxt {
+   transform: translateY(-6px);
+   display: inline-block;
+}
+
+.colorPlan .colorWrapper > div:nth-of-type(1) .color {
+   background-color: #f0c3c8;
+}
+
+.colorPlan .colorWrapper > div:nth-of-type(2) .color {
+   background-color: $appPink;
+}
+
+.colorPlan .colorWrapper > div:nth-of-type(3) .color {
+   background-color: $appYellow;
+}
+
+.colorPlan .colorWrapper > div:nth-of-type(4) .color {
+   background-color: $appPurple;
+}
+
+.colorPlan .colorWrapper > div:nth-of-type(5) .color {
+   background-color: $appGreen;
+}
+
+.walkIconWrapper {
+   margin-top: $main-space1;
+}
+
+.walkIcon {
+   width: 15%;
+   margin-right: 15px;
+}
+
+@media (max-width: 1024px) {
+   .tabRow .col-xl-5 {
+      position: relative;
+      left: 12.5%;
+   }
+}
+
+@media (max-width: 768px) {
+   .wireframe p {
+      width: 70%;
+   }
+   .colorPlan .colorWrapper > div {
+      text-align: center;
+   }
+   .walkIconWrapper {
+      justify-content: center;
+      flex-wrap: nowrap;
+   }
+   .walkIcon {
+      margin: 0 7.5px;
+   }
+   .demoImg {
+      display: none;
+   }
+   .tabContainer {
+      padding-top: 0;
+      height: auto;
+   }
+   .tabRow .col-xl-5 {
+      left: 0;
+   }
+   .showMobileWrapper {
+      margin-bottom: 65px;
+   }
+   .nav-item:nth-of-type(1) {
+      margin-left: auto;
+   }
+   .nav-item:nth-of-type(4) {
+      margin-right: auto;
+   }
+   .tabcontent .pageSliderTitle {
+      text-align: center;
+   }
+}
+
+@media (max-width: 769px) and (min-width: 768px) {
+   .colorPlan .colorWrapper > div {
+      text-align: left;
+   }
+   .walkIconWrapper {
+      justify-content: flex-start;
+   }
+   .walkIcon {
+      margin: 0 15px 0 0;
+   }
+   .demoImg {
+      display: block;
+   }
+   .tabContainer {
+      padding-top: 50px;
+      height: 500px;
+      margin-bottom: 0;
+   }
+   .tabRow .col-xl-5 {
+      left: 12.5%;
+   }
+   .nav-item:nth-of-type(1) {
+      margin-left: 0;
+   }
+   .nav-item:nth-of-type(4) {
+      margin-right: 0;
+   }
+   .tabcontent .pageSliderTitle {
+      text-align: left;
+   }
+}
+
+@media (max-width: 600px) {
+   .wireframe {
+      margin-bottom: 150px;
+   }
+   .colorRow .col-xl-6 {
+      padding: 0;
+   }
+   .walkIcon {
+      margin: 0 5px;
+   }
+   .colorTxt {
+      font-size: $content-size2;
+   }
+}
+
+@media (max-width: 320px) {
+   .nav-link {
+      padding: 8px 12px;
+   }
+}

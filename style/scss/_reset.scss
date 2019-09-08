@@ -1,0 +1,41 @@
+* {
+   padding: 0;
+   margin: 0;
+   font-family: 'Noto Sans TC', sans-serif;
+   box-sizing: border-box;
+}
+
+body,
+html {
+   position: relative;
+   background-color: #fff;
+   color: $main-black;
+}
+
+body.myCursor,
+html.myCursor {
+   cursor: pointer;
+}
+
+ul,
+li {
+   list-style-type: none;
+}
+
+a:hover {
+   text-decoration: none;
+}
+
+button:focus {
+   outline: none;
+}
+
+p {
+   margin: $main-space1 0 $main-space2;
+   line-height: $lineheight-content1;
+   letter-spacing: $letter-spacing2;
+}
+
+.row {
+   margin: 0;
+}

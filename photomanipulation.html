@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+      <meta name="author" content="Julie wu,吳珮暄" />
+      <meta name="description" content="吳珮暄個人作品集網站" />
+      <title>Julie wu Portfolio</title>
+      <link rel="icon" href="image/common/favicon.ico" type="image/x-icon" />
+      <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC:400|Karla:700&display=swap" rel="stylesheet" />
+      <link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
+      <link rel="stylesheet" href="beforeafter/before-after.css" />
+      <link rel="stylesheet" href="swiper/swiper.css" />
+      <link rel="stylesheet" href="style/css/style.css" />
+   </head>
+
+   <body class="photomanipulation">
+      <div class="container-fluid outContainer">
+         <!--menu button-->
+         <div class="container-fluid navbarWrapper"></div>
+         <!--menu content-->
+         <div class="menuContainer container-fluid"></div>
+
+         <div class="container-fluid contentContainer">
+            <div class="container">
+               <div class="contentTitle">
+                  <h3 class="projectName_ch">影像合成</h3>
+               </div>
+               <div class="wrapper">
+                  <!-- Slider main container -->
+                  <!-- Swiper -->
+                  <div class="swiper-container gallery-top col-lg-10 col-md-12">
+                     <div class="swiper-wrapper">
+                        <div class="swiper-slide ba-slider">
+                           <img src="./image/photomanipulation/asian_face1.jpg" alt="" />
+                           <div class="resize">
+                              <img src="./image/photomanipulation/asian_face2.jpg" alt="" />
+                           </div>
+                           <span class="handle"></span>
+                        </div>
+                        <div class="swiper-slide ba-slider">
+                           <img src="./image/photomanipulation/blackMature1.jpg" alt="" />
+                           <div class="resize">
+                              <img src="./image/photomanipulation/blackMature2.jpg" alt="" />
+                           </div>
+                           <span class="handle"></span>
+                        </div>
+                        <div class="swiper-slide ba-slider">
+                           <img src="./image/photomanipulation/mirror_woman1.jpg" alt="" />
+                           <div class="resize">
+                              <img src="./image/photomanipulation/mirror_woman2.jpg" alt="" />
+                           </div>
+                           <span class="handle"></span>
+                        </div>
+                        <div class="swiper-slide ba-slider">
+                           <img src="./image/photomanipulation/robot_women1.jpg" alt="" />
+                           <div class="resize">
+                              <img src="./image/photomanipulation/robot_women2.jpg" alt="" />
+                           </div>
+                           <span class="handle"></span>
+                        </div>
+                        <div class="swiper-slide ba-slider">
+                           <img src="./image/photomanipulation/womenHair1.jpg" alt="" />
+                           <div class="resize">
+                              <img src="./image/photomanipulation/womenHair2.jpg" alt="" />
+                           </div>
+                           <span class="handle"></span>
+                        </div>
+                     </div>
+                     <!-- Add Arrows -->
+                     <div class="swiper-button-next swiper-button-white"></div>
+                     <div class="swiper-button-prev swiper-button-white"></div>
+                  </div>
+                  <div class="swiper-container gallery-thumbs col-lg-10 col-md-12">
+                     <div class="swiper-wrapper">
+                        <!-- <div class="swiper-slide" style="background-image:url(./image/photomanipulation/asian_face1.jpg)"></div>-->
+                        <div class="swiper-slide" style="background-image:url(./image/photomanipulation/asian_face1.jpg)"></div>
+                        <div class="swiper-slide" style="background-image:url(./image/photomanipulation/blackMature1.jpg)"></div>
+                        <div class="swiper-slide" style="background-image:url(./image/photomanipulation/mirror_woman1.jpg)"></div>
+                        <div class="swiper-slide" style="background-image:url(./image/photomanipulation/robot_women1.jpg)"></div>
+                        <div class="swiper-slide" style="background-image:url(./image/photomanipulation/womenHair1.jpg)"></div>
+                     </div>
+                  </div>
+               </div>
+               <div class="container buttonWrapper">
+                  <a href="gallery.html" class="button"> <span class="before"></span>back</a>
+               </div>
+               <footer></footer>
+            </div>
+         </div>
+      </div>
+      <script src="js/jquery-3.1.0.min.js"></script>
+      <script src="beforeafter/before-after.js"></script>
+      <script src="swiper/swiper.min.js"></script>
+      <script src="js/swiper-init.js"></script>
+      <script src="js/load.js"></script>
+      <script>
+         function baEffect() {
+            $('.ba-slider').beforeAfter();
+         }
+         addLoadEvent(mySwiper);
+         addLoadEvent(baEffect);
+      </script>
+   </body>
+</html>

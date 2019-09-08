@@ -1,0 +1,156 @@
+:root {
+   --frameW: 90%;
+   --gutter: 15px;
+}
+.gallery {
+   min-height: 100vh;
+   background-image: url(../../image/gallery/bg.jpg);
+   background-repeat: repeat;
+   background-size: 365px 271px;
+   overflow-x: hidden;
+   h2.pageTitle {
+      margin-bottom: $main-space1;
+   }
+   .wrapper {
+      .item:nth-of-type(1) {
+         margin-right: auto;
+      }
+      .item:nth-of-type(2) {
+         margin-left: auto;
+      }
+   }
+   .item {
+      position: relative;
+      text-align: center;
+      z-index: 1;
+      .frame {
+         width: var(--frameW);
+         box-shadow: 7px 3px 10px rgba(51, 51, 51, 0.5);
+      }
+      .row {
+         position: absolute;
+         left: calc(50% - var(--gutter));
+         top: calc(50% - var(--gutter));
+         transform: translate(calc(-50% + var(--gutter)), calc(-50% - var(--gutter) * 1.5));
+         width: calc(var(--frameW) - var(--gutter) * 2);
+      }
+
+      .picture {
+         img {
+            width: calc(var(--frameW) - var(--gutter) * 2);
+         }
+      }
+      h3 {
+         margin-top: $main-space1;
+         transition: 0.5s;
+         a {
+            color: $main-black;
+            font-size: 1.75rem;
+            font-family: 'Source Serif Pro', serif;
+            text-transform: capitalize;
+            letter-spacing: $letter-spacing2;
+         }
+         span {
+            @extend %blackarrow;
+            @extend %pseudoAfter;
+            margin-bottom: 0;
+            transform: translateY(-5px);
+
+            &::after {
+               @extend %pseudoCommon;
+            }
+         }
+         &:hover {
+            cursor: pointer;
+         }
+         &:hover span {
+            width: 40px;
+         }
+      }
+   }
+   .item::after {
+      content: '';
+      display: block;
+      position: absolute;
+      z-index: -1;
+      background-repeat: no-repeat;
+      background-size: contain;
+   }
+   .item:nth-of-type(1)::after {
+      background-image: url(../../image/gallery/left_pattern.png);
+      left: -25px;
+      top: -55px;
+      width: 110%;
+      height: 120%;
+   }
+   .item:nth-of-type(2)::after {
+      background-image: url(../../image/gallery/right_pattern.png);
+      right: -50px;
+      bottom: -40px;
+      width: 80%;
+      height: 60%;
+   }
+}
+@media (orientation: portrait) {
+   .gallery .item:nth-of-type(1) {
+      margin-bottom: $main-space2;
+   }
+}
+// 於ipad(1024)變為一欄的寫法
+// @media (max-width: 1024px) and (min-width: 1023px) and (orientation: portrait) {
+//    .gallery {
+//       .item {
+//          flex-basis: 100%;
+//          max-width: 100%;
+//          .picture {
+//             margin: 0 auto;
+//             height: 400px;
+//             img {
+//                width: 100%;
+//             }
+//          }
+//       }
+//       .item:nth-of-type(1) {
+//          margin-bottom: $main-space2;
+//       }
+
+//       .item:nth-of-type(1)::after {
+//          width: 100%;
+//          top: 20px;
+//          left: -20px;
+//       }
+//       .item:nth-of-type(2)::after {
+//          bottom: -80px;
+//          right: -70px;
+//       }
+//    }
+// }
+@media (max-width: 600px) {
+   .gallery {
+      .item {
+         h3 {
+            a {
+               font-size: $rwd-h2Size2;
+            }
+            span {
+               @extend %spanHeight-s;
+            }
+            .after::after {
+               @extend %after-s;
+            }
+         }
+      }
+   }
+}
+@media (max-width: 400px) {
+   .gallery .item:nth-of-type(1)::after {
+      width: 60%;
+      top: 20px;
+   }
+   .gallery .item:nth-of-type(2)::after {
+      bottom: -30px;
+   }
+   .gallery .item:nth-of-type(2) .row {
+      transform: translate(calc(-50% + var(--gutter)), calc(-50% - var(--gutter) * 2.5));
+   }
+}

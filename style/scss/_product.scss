@@ -1,0 +1,112 @@
+.product-wrapper {
+   padding-top: 150px;
+   img {
+      width: 100%;
+      height: auto;
+   }
+   .carousel {
+      margin: 0 auto;
+      padding: 0;
+      .row {
+         .detailTxt {
+            padding-top: $main-space1;
+         }
+         .detailTxt.bigger600 {
+            padding-left: $main-space1;
+         }
+         .detailTxt.smaller600 {
+            padding-left: 0;
+            text-align: center;
+         }
+      }
+   }
+}
+.lastRow {
+   margin-top: 200px;
+   justify-content: center;
+   .slogan p {
+      font-family: 'Lobster', cursive;
+      font-size: 3.75rem;
+      text-align: center;
+   }
+}
+.lastRow .slogan,
+.lastRow > div:nth-of-type(2) {
+   padding: 0;
+}
+
+@media (max-width: 992px) {
+   .lastRow .slogan p {
+      font-size: $main-h2Size;
+   }
+}
+
+@media (max-width: 768px) {
+   .lastRow .slogan p {
+      font-size: $rwd-h2Size1;
+   }
+}
+@media (max-width: 768px) and (min-width: 767px) {
+   .slick-prev.slick-prev {
+      left: auto;
+      right: 50px;
+   }
+   .slick-next.slick-next {
+      left: auto;
+      right: 0px;
+   }
+}
+@media (max-width: 768px) and (min-width: 614px) {
+   .product-wrapper {
+      .carousel .row .detailTxt.bigger600 {
+         padding-top: 0;
+      }
+   }
+   .slick-prev,
+   .slick-next {
+      right: auto;
+      bottom: 46px;
+   }
+   .slick-prev {
+      left: 0;
+   }
+   .slick-next {
+      left: 45px;
+   }
+}
+@media (max-width: 614px) {
+   .slick-prev,
+   .slick-next {
+      left: 50%;
+   }
+   .slick-prev {
+      transform: translateX(calc(-50% - 27.5px)) translateY(15px);
+   }
+   .slick-next {
+      transform: translateX(calc(-50% + 27.5px)) translateY(15px);
+   }
+}
+@media (max-width: 600px) {
+   .product-wrapper {
+      padding-top: 100px;
+      .pageSliderTitle {
+         font-size: 1.25rem;
+      }
+      .pageSliderTitle + p {
+         margin-top: 20px;
+      }
+   }
+   .lastRow {
+      margin-top: 150px;
+      .slogan p {
+         font-size: $rwd-h2Size2;
+         margin-bottom: $main-space1;
+      }
+   }
+}
+
+@media (max-width: 320px) {
+   .lastRow .slogan p {
+      font-size: 1.25rem;
+   }
+}

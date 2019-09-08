@@ -1,0 +1,128 @@
+body {
+   position: relative;
+}
+.p0 {
+   padding: 0;
+}
+p.introP {
+   margin-right: auto;
+   margin-left: auto;
+   padding: 0;
+}
+h2.pageTitle {
+   text-align: center;
+   padding-top: $main-space2;
+   margin-bottom: $main-space2;
+   text-transform: uppercase;
+   span {
+      font-family: 'Karla', serif;
+      font-size: $main-h2Size;
+      font-weight: 700;
+      text-transform: capitalize;
+      line-height: 1.5;
+      letter-spacing: $letter-spacing;
+      display: inline-block;
+      color: #fff;
+      background-color: $main-pink;
+      padding: 3px 18px 5px;
+   }
+}
+section > .container {
+   padding-bottom: $main-space2;
+}
+.wrapper {
+   padding-bottom: 70px;
+}
+.contentContainer {
+   position: relative;
+   z-index: 1;
+   background-color: #fff;
+   padding-top: $main-space2;
+   .contentTitle {
+      letter-spacing: $letter-spacing2;
+      + p {
+         text-align: center;
+      }
+      .projectDetail,
+      .projectName_ch {
+         text-align: center;
+      }
+   }
+   .projectDetail:nth-of-type(1) {
+      margin-top: $main-space1;
+      line-height: $lineheight-content1;
+   }
+}
+
+.projectName_ch {
+   text-align: center;
+   margin-bottom: $main-space1;
+}
+%highlight {
+   width: 0%;
+   height: 15px;
+   display: block;
+   background-color: $main-yellow;
+   position: absolute;
+   left: 0;
+   top: 50%;
+   z-index: -1;
+}
+%slickCommon {
+   text-indent: -9999px;
+   letter-spacing: $letter-spacing2;
+   padding: 5px 20px;
+   color: $main-pink;
+   background-color: $main-pink;
+   border: 2.5px solid $main-pink;
+   background-repeat: no-repeat;
+   background-size: 40%;
+   background-position: center center;
+   position: absolute;
+   z-index: 3;
+   bottom: 0;
+   cursor: pointer;
+}
+.slick-prev {
+   @extend %slickCommon;
+   background-image: url(../../image/common/left-arrow.svg);
+   right: 50px;
+}
+.slick-next {
+   @extend %slickCommon;
+   background-image: url(../../image/common/right-arrow.svg);
+   right: 0;
+}
+@media (max-width: 992px) {
+   .wrapper {
+      padding-bottom: $main-space2;
+   }
+}
+@media (max-width: 768px) {
+   //------------------------------all setting
+   section > .container,
+   section [class^='col'] {
+      padding-left: 0;
+      padding-right: 0;
+   }
+   h2.pageTitle span {
+      font-size: $rwd-h2Size1;
+   }
+}
+@media (max-width: 600px) {
+   .projectName_ch {
+      font-size: $rwd-h2Size2;
+   }
+   .projectDetail,
+   p {
+      font-size: $content-size2;
+   }
+}
+@media (max-width: 576px) {
+   h2.pageTitle span {
+      font-size: $rwd-h2Size2;
+   }
+   .wrapper {
+      padding-bottom: $main-space1;
+   }
+}

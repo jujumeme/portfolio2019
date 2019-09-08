@@ -1,0 +1,16 @@
+footer {
+   text-align: center;
+   padding-bottom: 20px;
+   letter-spacing: 0.75px;
+   white-space: nowrap;
+}
+@media (max-width: 576px) {
+   footer > small {
+      font-size: 0.75rem;
+   }
+}
+@media (max-width: 320px) {
+   footer > small {
+      font-size: 0.6rem;
+   }
+}
