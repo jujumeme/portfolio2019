@@ -1,20 +1,4 @@
-$('.navbarWrapper').load('navwrapper.html');
-$('.menuContainer').load('menu.html', function() {
-   $('.navbarWrapper .flower>img').click(function() {
-      $(this).toggleClass('rotateflower');
-      if (!$('.menuContainer').hasClass('show')) {
-         $('.menuContainer').addClass('show');
-         console.log('1');
-      } else {
-         $('.menuContainer ').removeClass('show');
-         console.log('2');
-      }
-   });
-});
-$('footer').load('footer.html');
-
-// window.onload全站共同menu載入部分
-window.onload = function() {
+function clickMenu() {
    $('.menuUl>li:nth-child(-n+4)').hover(
       function() {
          // console.log('uuuuu');
@@ -41,7 +25,25 @@ window.onload = function() {
          $(this).find('span').removeClass('yellowBlock');
       }
    );
-};
+}
+$('.navbarWrapper').load('navwrapper.html');
+$('.menuContainer').load('menu.html', function() {
+   $('.navbarWrapper .flower>img').click(function() {
+      $(this).toggleClass('rotateflower');
+      if (!$('.menuContainer').hasClass('show')) {
+         $('.menuContainer').addClass('show');
+         console.log('1');
+      } else {
+         $('.menuContainer ').removeClass('show');
+         console.log('2');
+      }
+   });
+   setTimeout(clickMenu, 500);
+});
+$('footer').load('footer.html');
+
+// window.onload全站共同menu載入部分
+// window.onload = function() {};
 
 // window.onload的調用
 function addLoadEvent(func) {

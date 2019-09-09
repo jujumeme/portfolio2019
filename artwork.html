@@ -84,8 +84,10 @@
       <script src="js/swiper-init.js"></script>
       <script src="js/load.js"></script>
       <script>
-         // addLoadEvent(clickMenu);
-         addLoadEvent(mySwiper);
+         window.onload = function() {
+            mySwiper();
+         };
+         // addLoadEvent(mySwiper);
       </script>
    </body>
 </html>

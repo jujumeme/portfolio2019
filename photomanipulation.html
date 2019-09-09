@@ -99,9 +99,10 @@
             $('.ba-slider').beforeAfter();
          }
 
-         // addLoadEvent(clickMenu);
-         addLoadEvent(mySwiper);
-         addLoadEvent(baEffect);
+         window.onload = function() {
+            mySwiper();
+            baEffect();
+         };
       </script>
    </body>
 </html>
