@@ -1,4 +1,17 @@
 function clickMenu() {
+   $('.navbarWrapper .flower>img').click(function() {
+      $(this).toggleClass('rotateflower');
+      if (!$('.menuContainer').hasClass('show')) {
+         $('.menuContainer').addClass('show');
+         console.log('1');
+      } else {
+         $('.menuContainer ').removeClass('show');
+         console.log('2');
+      }
+   });
+}
+
+function hoverYellowBlock() {
    $('.menuUl>li:nth-child(-n+4)').hover(
       function() {
          // console.log('uuuuu');
@@ -28,17 +41,8 @@ function clickMenu() {
 }
 $('.navbarWrapper').load('navwrapper.html');
 $('.menuContainer').load('menu.html', function() {
-   $('.navbarWrapper .flower>img').click(function() {
-      $(this).toggleClass('rotateflower');
-      if (!$('.menuContainer').hasClass('show')) {
-         $('.menuContainer').addClass('show');
-         console.log('1');
-      } else {
-         $('.menuContainer ').removeClass('show');
-         console.log('2');
-      }
-   });
-   setTimeout(clickMenu, 500);
+   setTimeout(clickMenu, 200);
+   setTimeout(hoverYellowBlock, 500);
 });
 $('footer').load('footer.html');
 
