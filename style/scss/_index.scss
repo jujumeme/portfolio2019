@@ -1,0 +1,600 @@
+$container-w: 100%;
+$main-visual-p-x: 15vh;
+$main-visual-p-y: 10vh;
+$bg-shadow-size-lg: 15px;
+$bg-shadow-size-sm: 7px;
+$section-gutter: 25px;
+$section-gutter-sm: 80px;
+$section-gutter-md: $section-gutter-sm + $section-gutter;
+$section-gutter-lg: $section-gutter-sm + $section-gutter * 6;
+@function main-visual-inner-h() {
+   @return 100vh - $main-visual-p-y * 2;
+}
+// 三角形設定
+@mixin mytriangle($size, $color, $direction, $type: 1) {
+   // $type: 1 預設的是等腰三角形,$type:0.8666666是正三角形。數字大小可自己改,高度就會相對應變高或變矮
+   width: 0;
+   height: 0;
+   @if ($direction == top) {
+      border-bottom: $size * $type solid $color;
+      border-left: $size/2 solid transparent;
+      border-right: $size/2 solid transparent;
+   } @else if($direction == right) {
+      border-top: $size/2 solid transparent;
+      border-bottom: $size/2 solid transparent;
+      border-left: $size * $type solid $color;
+   } @else if($direction == bottom) {
+      border-top: $size * $type solid $color;
+      border-left: $size/2 solid transparent;
+      border-right: $size/2 solid transparent;
+   } @else if($direction == left) {
+      border-top: $size/2 solid transparent;
+      border-bottom: $size/2 solid transparent;
+      border-right: $size * $type solid $color;
+   } @else if($direction == right-top) {
+      border-right: $size solid $color;
+      border-bottom: $size solid transparent;
+   } @else if($direction == right-bottom) {
+      border-right: $size solid $color;
+      border-top: $size solid transparent;
+   } @else if($direction == left-top) {
+      border-left: $size solid $color;
+      border-bottom: $size solid transparent;
+   } @else if($direction == left-bottom) {
+      border-left: $size solid $color;
+      border-top: $size solid transparent;
+   }
+}
+// highlight設定
+@mixin highlight-father($mode, $display: inline-block, $z-index: 1, $width-100: 100%, $width-0: 0%) {
+   position: relative;
+   display: $display;
+   z-index: $z-index;
+   @if ($mode == m-normal) {
+      .highlight {
+         width: $width-100;
+      }
+   } @else if($mode == m-active) {
+      .highlight {
+         width: $width-100;
+      }
+   } @else if($mode == m-hover) {
+      .highlight {
+         width: $width-0;
+         transition: 0.5s;
+      }
+      &:hover .highlight {
+         width: $width-100;
+      }
+   }
+}
+
+@mixin highlight($height, $color, $top) {
+   position: absolute;
+   display: inline-block;
+   height: $height;
+   background-color: $color;
+   left: 0;
+   top: $top;
+   z-index: -1;
+}
+
+// item-width設定
+@mixin myitem($item-number, $item-gutter-right, $item-gutter-bottom) {
+   width: calc((#{$container-w} - (#{$item-gutter-right} * (#{$item-number} - 1) + 1px)) / #{$item-number});
+   margin: 0 $item-gutter-right $item-gutter-bottom 0;
+   &:nth-of-type(#{$item-number}n) {
+      margin-right: 0;
+   }
+}
+
+// global setting
+.indexContainer {
+   padding: 0;
+}
+.indexContainer img {
+   width: 100%;
+   height: auto;
+}
+.indexContainer section {
+   margin-bottom: $section-gutter-lg;
+}
+.indexContainer section > .container-fluid {
+   padding-bottom: 50px;
+}
+.indexContainer section > .row {
+   margin: 0 auto;
+}
+.main-title {
+   font-family: 'Karla', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   font-size: 3.5rem;
+   text-transform: capitalize;
+}
+
+.highlight-wrapper {
+   @include highlight-father(m-normal);
+}
+.highlight {
+   @include highlight(25px, $main-yellow, 37px);
+}
+// main-visual setting
+@keyframes leafAniLeft {
+   0% {
+      transform: rotate(5deg);
+   }
+   50% {
+      transform: rotate(0deg);
+   }
+   100% {
+      transform: rotate(-10deg);
+   }
+}
+@keyframes leafAniRight {
+   0% {
+      transform: rotate(15deg);
+   }
+   50% {
+      transform: rotate(7deg);
+   }
+   100% {
+      transform: rotate(0deg);
+   }
+}
+
+.main-visual {
+   background-image: url(../../image/index/checkered-01.svg);
+   background-size: 20px 20px;
+   padding: $main-visual-p-y $main-visual-p-x;
+   height: 100vh;
+}
+.main-visual-inner-bg {
+   background-color: $main-yellow;
+   min-height: main-visual-inner-h();
+   position: relative;
+}
+.main-visual-inner-bg::before {
+   content: '';
+   position: absolute;
+   left: 0;
+   top: 0;
+   @include mytriangle(100px, $light-pink, left-top, 1);
+}
+.welcome {
+   position: absolute;
+   right: -50px;
+   bottom: -20px;
+   transform: rotate(-15deg);
+}
+
+.main-visual-group > div {
+   position: relative;
+}
+.main-visual-group img {
+   position: relative;
+   top: 50%;
+   transform: translateY(-50%);
+}
+.main-visual-title-julie img {
+   margin-top: 10px;
+}
+.main-visual-leaf-left {
+   position: relative;
+   transform-origin: 50% 100%;
+   animation: leafAniLeft 3s linear infinite alternate;
+}
+.main-visual-leaf-left img {
+   position: absolute;
+   width: 90%;
+   bottom: 0;
+   left: -25px;
+   filter: drop-shadow(3px 3px 0px rgb(230, 180, 20));
+}
+.main-visual-leaf-right {
+   position: absolute;
+   top: -20px;
+   right: -10px;
+   transform-origin: 100% 0%;
+   animation: leafAniRight 3s linear infinite alternate;
+}
+.main-visual-leaf-right img {
+   width: 115%;
+   height: auto;
+   filter: drop-shadow(3px 3px 0px rgb(230, 180, 20));
+}
+
+// about setting
+.indexContainer .about > .row {
+   padding-bottom: 0;
+}
+.about > .row {
+   justify-content: center;
+}
+.me-bg {
+   position: relative;
+   background-color: $light-pink;
+   padding-top: 40px;
+   margin-top: 100px;
+   box-shadow: $bg-shadow-size-lg $bg-shadow-size-lg 0px $main-pink, $bg-shadow-size-lg * -1 $bg-shadow-size-lg * -1 0px $most-light-pink;
+   text-align: center;
+   cursor: pointer;
+   transform-style: preserve-3d;
+}
+.me-bg > span {
+   width: 35px;
+   height: 35px;
+   padding: 10px;
+   background-color: $main-yellow;
+   border-radius: 50%;
+   box-sizing: content-box;
+   position: absolute;
+   font-weight: bold;
+   font-size: $rwd-h2Size2;
+   margin-left: -30px;
+   transform: translateZ(40px);
+}
+.me-bg > span::after {
+   content: '';
+   position: absolute;
+   @include mytriangle(15px, $main-yellow, left-bottom, 1);
+   left: 6%;
+   bottom: 6%;
+   transform: translateZ(40px);
+}
+// skill setting
+.skill {
+   background-color: $light-pink;
+   padding: 0 30px;
+}
+
+.skill .main-title-wrapper {
+   text-align: center;
+   margin: -4% 0 50px;
+}
+.skill-item {
+   @include myitem(3, 60px, 50px);
+   background-color: #fff;
+   height: 200px;
+   position: relative;
+   box-shadow: $bg-shadow-size-sm $bg-shadow-size-sm 0px $main-pink;
+}
+
+.skill-item::before {
+   content: '';
+   position: absolute;
+   left: 0;
+   top: 0;
+   @include mytriangle(75px, $main-yellow, left-top, 1);
+}
+.skill-item > span {
+   display: inline-block;
+   font-size: 1.25rem;
+   font-weight: 900;
+   position: relative;
+   z-index: 2;
+   transform: translate(40%, 20%);
+}
+.skill-item > h4 {
+   text-align: center;
+   font-weight: 700;
+   padding: 10px 0 5px;
+}
+.skill-item > p {
+   width: 80%;
+   text-align: center;
+   margin: 0 auto;
+}
+// works setting
+.works-entrance {
+   position: relative;
+   padding: 50px 0 0 0;
+}
+.works-content {
+   padding: 0;
+}
+.checkered-bg {
+   position: absolute;
+   right: 0;
+   top: 30%;
+   display: block;
+   width: 80%;
+   padding: 0;
+   margin: 0;
+   background-image: url(../../image/index/checkered.jpg);
+   background-size: 20px 20px;
+}
+.works-entrance .main-title-wrapper {
+   text-align: right;
+   transform: translateY(-50%);
+}
+.works-entrance > .row > .container {
+   // background-color: $most-light-pink;
+   position: relative;
+   z-index: 1;
+   padding-bottom: 110px;
+}
+.works-entrance > .row > .container::before {
+   content: '';
+   background-color: $most-light-pink;
+   display: block;
+   width: 310%;
+   height: 100%;
+   position: absolute;
+   left: -220%;
+}
+.works-entrance .buttonWrapper {
+   z-index: 2;
+   margin: -10px 0 0;
+}
+.works-item-wrapper {
+   overflow: hidden;
+   position: relative;
+   padding: 0 10px 10px 0;
+   z-index: 1;
+}
+.works-item {
+   @include myitem(3, 100px, 0);
+   border: 7px solid $light-pink;
+   box-shadow: $bg-shadow-size-sm $bg-shadow-size-sm 0px $main-pink;
+}
+
+// gallery setting
+.indexContainer .gallery-entrance {
+   position: relative;
+   margin-bottom: 100px;
+}
+.gallery-entrance > .row {
+   justify-content: center;
+   position: relative;
+   z-index: 2;
+}
+.gallery-entrance .main-title-wrapper {
+   text-align: center;
+   margin-bottom: 60px;
+}
+.gallery-entrance .card {
+   padding: 0;
+   border: none;
+   box-shadow: $bg-shadow-size-lg $bg-shadow-size-lg 0px $main-pink, $bg-shadow-size-lg * -1 $bg-shadow-size-lg * -1 0px $most-light-pink;
+   @include myitem(2, 100px, 0);
+}
+.gallery-entrance .card-title {
+   text-align: center;
+   font-weight: bolder;
+   font-family: 'Source Serif Pro', serif;
+}
+
+@media screen and (orientation: landscape) {
+   .checkered-bg {
+      height: 40vw;
+      max-height: 500px;
+   }
+}
+@media screen and (orientation: portrait) {
+   .checkered-bg {
+      height: 30vh;
+   }
+}
+@media screen and (max-width: 1024px) {
+   // main-visual setting
+   .main-visual-leaf-right img {
+      width: 100%;
+      height: auto;
+   }
+   // skill setting
+   .skill-item:nth-of-type(3n) {
+      margin-right: 60px;
+   }
+   .skill .skill-item {
+      @include myitem(2, 60px, 50px);
+   }
+}
+@media screen and (max-width: 1024px) and (orientation: landscape) {
+   .main-visual-group > div {
+      flex: 0 0 41.6667%;
+      max-width: 41.6667%;
+   }
+   .main-visual-leaf-right {
+      flex: 0 0 25%;
+      max-width: 25%;
+   }
+
+   .welcome {
+      flex: 0 0 33.333333%;
+      max-width: 33.333333%;
+   }
+}
+@media screen and (max-width: 1024px) and (orientation: portrait) {
+   .main-visual {
+      padding: 10vh 5vh;
+   }
+   .main-visual-group > div {
+      flex: 0 0 75%;
+      max-width: 75%;
+      margin: 0 auto;
+   }
+   .main-visual-logo-big img {
+      top: 60%;
+   }
+   .main-visual-title-julie img {
+      top: 0;
+      transform: translateY(0);
+      margin-top: 20px;
+   }
+   .main-visual-leaf-left img {
+      width: 150%;
+   }
+   .main-visual-leaf-right {
+      flex: 0 0 33.333333%;
+      max-width: 33.333333%;
+   }
+   .welcome {
+      flex: 0 0 50%;
+      max-width: 50%;
+   }
+}
+@media screen and (max-width: 992px) {
+   // gallery setting
+   .gallery-entrance .card {
+      @include myitem(2, 60px, 0);
+   }
+   .gallery-entrance .card-title {
+      font-size: $rwd-h2Size2;
+   }
+}
+@media screen and (max-width: 992px) and (orientation: landscape) {
+   // skill setting
+   .checkered-bg {
+      height: 62vw;
+   }
+}
+@media screen and (max-width: 992px) and (orientation: portrait) {
+   // skill setting
+   .checkered-bg {
+      height: 40vh;
+   }
+}
+@media screen and (max-width: 991px) {
+   // works setting
+   .works-item {
+      @include myitem(2, 60px, 0);
+   }
+   .works-item:last-of-type {
+      display: none;
+   }
+}
+@media screen and (max-width: 768px) {
+   // global-setting
+   .indexContainer section {
+      margin-bottom: 150px;
+   }
+
+   // skill-setting
+   .skill .main-title-wrapper {
+      margin: -7% 0 30px;
+   }
+
+   .checkered-bg {
+      height: 62vw;
+   }
+   // gallery setting
+   .gallery-entrance .card {
+      box-shadow: $bg-shadow-size-sm $bg-shadow-size-sm 0px $main-pink, $bg-shadow-size-sm * -1 $bg-shadow-size-sm * -1 0px $most-light-pink;
+   }
+   .gallery-entrance > .row > .row {
+      padding: 0 10px;
+   }
+   .gallery-entrance .main-title-wrapper {
+      margin-bottom: 35px;
+   }
+}
+
+@media screen and (max-width: 768px) and (orientation: landscape) {
+   // main-visual
+   .main-visual-group .main-visual-logo-big {
+      padding-right: 15px;
+   }
+   .main-visual-group .main-visual-title-julie {
+      padding-left: 15px;
+   }
+}
+
+@media screen and (max-width: 768px) and (orientation: portrait) {
+}
+
+@media screen and (max-width: 767px) {
+   // about-setting
+   .about .main-title-wrapper {
+      text-align: center;
+   }
+   .about-content {
+      order: 2;
+   }
+   .me-wrapper {
+      order: 1;
+   }
+   .me-bg {
+      margin: 0 0 80px 0;
+   }
+   // works-setting
+   .works-entrance .main-title-wrapper {
+      text-align: center;
+   }
+}
+
+@media screen and (max-width: 576px) {
+   // global setting
+   .indexContainer section {
+      margin-bottom: 120px;
+   }
+   // main-visual setting
+   .main-visual-group {
+      padding: 0;
+   }
+   .main-visual-inner-bg::before {
+      @include mytriangle(75px, $light-pink, left-top, 1);
+   }
+   .main-title {
+      font-size: $rwd-h2Size1;
+      margin-bottom: 0;
+   }
+   .highlight {
+      @include highlight(15px, $main-yellow, 20px);
+   }
+   .welcome {
+      right: -26px;
+      padding: 0;
+   }
+   // about setting
+   .me-bg {
+      margin: 0 0 60px 0;
+   }
+   // skill setting
+   .skill .skill-item {
+      @include myitem(1, 0px, 30px);
+   }
+   // .works setting
+   .works-entrance > .row > .container {
+      padding-bottom: 60px;
+   }
+   .checkered-bg {
+      height: 70vw;
+   }
+   // gallery setting
+   .gallery-entrance > .row > .row {
+      padding: 0 20px;
+   }
+   .gallery-entrance .card {
+      @include myitem(1, 0px, 0);
+   }
+   .gallery-entrance .card:first-of-type {
+      margin-bottom: 50px;
+   }
+}
+
+@media screen and (max-width: 576px) and (orientation: portrait) {
+   // main-visual setting
+   .main-visual-leaf-left img {
+      width: 180%;
+   }
+   .main-visual-leaf-right {
+      flex: 0 0 41.666667%;
+      max-width: 41.666667%;
+   }
+   .main-visual-leaf-right img {
+      width: 120%;
+   }
+
+   .welcome {
+      flex: 0 0 66.666667%;
+      max-width: 66.666667%;
+   }
+   // works setting
+   .works-item {
+      @include myitem(2, 40px, 0);
+   }
+}
+
+// test
+.test-item > img {
+   box-shadow: $bg-shadow-size-lg $bg-shadow-size-lg 0px $main-pink, $bg-shadow-size-lg * -1 $bg-shadow-size-lg * -1 0px #fff;
+}

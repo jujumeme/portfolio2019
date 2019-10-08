@@ -1,9 +1,39 @@
+// menu button setting
+.three {
+   padding: 12px 15px;
+   text-align: center;
+   box-sizing: content-box;
+}
+.hamburger .line {
+   width: 35px;
+   height: 3px;
+   background-color: #fff;
+   display: block;
+   margin: 8px auto;
+   transition: all 0.3s ease-in-out;
+}
+
+.hamburger:hover {
+   cursor: pointer;
+}
+
+#hamburger-1.is-active .line:nth-child(2) {
+   opacity: 0;
+}
+
+#hamburger-1.is-active .line:nth-child(1) {
+   transform: translateY(11px) rotate(45deg);
+}
+
+#hamburger-1.is-active .line:nth-child(3) {
+   transform: translateY(-11px) rotate(-45deg);
+}
+
 // menu setting
 .menuContainer {
    height: 100vh;
    position: fixed;
    z-index: 9;
-   background-color: #fff;
    right: -100%;
    top: 0;
    padding: 0;
@@ -18,54 +48,23 @@
       position: relative;
       padding: 0;
       overflow: hidden;
-      .menuPattern {
-         width: 70%;
-         height: 100vh;
-         float: left;
-         position: relative;
-         background-color: #fff;
-         [class^='pattern'] {
-            width: 100%;
-            height: 100%;
-            background-repeat: repeat;
-            background-size: 100px 100px;
-            background-position: 0 0;
-            position: absolute;
-            animation: menuAni 12s linear infinite;
-            &.showPattern {
-               animation: menuAni 12s linear infinite;
-            }
-         }
-         .pattern1 {
-            background-image: url(../../image/menu/menuPatternCircle.jpg);
-            z-index: 2;
-            //初始進入就是這張圖
-         }
-         .pattern2 {
-            background-image: url(../../image/menu/menuPatternX.jpg);
-         }
-         .pattern3 {
-            background-image: url(../../image/menu/menuPatternSquare3.jpg);
-         }
-         .pattern4 {
-            background-image: url(../../image/menu/cube_unit.jpg);
-            background-size: 75px 130px;
-         }
-      }
       .menuUl {
-         width: 30%;
+         background-color: $most-light-pink;
+         width: 320px;
          height: 100%;
          padding: 100px 0 0 $main-space2;
-         float: left;
+         float: right;
          > li {
             font-size: $rwd-h2Size2;
             line-height: $lineheight-content1;
             margin: 15px 0;
+            position: relative;
+            z-index: 2;
             a {
                display: inline-block;
                color: $main-black;
                text-transform: capitalize;
-               font-family: 'Karla', serif;
+               font-family: 'Karla', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
                position: relative;
                span {
                   @extend %highlight;
@@ -77,107 +76,49 @@
             }
             li {
                float: left;
-               margin-right: $main-space1;
                a img {
                   width: 20px;
                }
             }
          }
+         li li:first-of-type {
+            margin-right: $main-space1;
+         }
       }
+   }
+   .icon-list {
+      overflow: hidden;
    }
 }
 
-@keyframes menuAni {
-   0% {
-   }
-   100% {
-      background-position: -1200px -1300px;
-   }
-}
 //------------------------------選單按鈕 setting
 .navbarWrapper {
-   width: 300px;
+   width: 65px;
+   height: 65px;
    padding: 0;
    display: inline-block;
+   top: 0;
    right: 0;
    position: fixed;
    z-index: 10;
-   #pinkBlock {
-      position: absolute;
-      top: -12px;
-      right: -5px;
-      width: 240px;
-      height: 96px;
-   }
-   .flower {
-      position: absolute;
-      right: 15px;
-      text-align: right;
-      display: inline-block;
-      margin-top: 11px;
-      > img {
-         width: 47%;
-         height: 47%;
-         transform: rotate(0deg);
-         transition: 1s;
-         &.rotateflower {
-            transform: rotate(720deg);
-         }
-      }
-   }
-}
-@media (max-width: 992px) {
-   .menuContainer {
-      > .container-fluid {
-         .menuPattern {
-            width: 65%;
-         }
-         .menuUl {
-            width: 35%;
-         }
-      }
-   }
-}
-@media (max-width: 992px) and (orientation: landscape) {
-   .navbarWrapper {
-      #pinkBlock {
-         top: -25px;
-         right: -20px;
-      }
-      .flower {
-         > img {
-            width: 40%;
-            height: 40%;
-         }
-      }
-   }
+   background-color: $main-pink;
+   background-repeat: no-repeat;
+   background-size: contain;
 }
 @media (max-width: 768px) {
-   .menuContainer {
-      > .container-fluid {
-         .menuPattern {
-            width: 20%;
-         }
-         .menuUl {
-            width: 80%;
-         }
-      }
+   .menuContainer > .container-fluid .menuUl {
+      padding: 100px 0;
+      width: 100%;
+      max-width: none;
    }
-}
-
-@media (max-width: 576px) {
-   .navbarWrapper {
-      #pinkBlock {
-         top: -40px;
-         right: -47px;
-      }
-      .flower {
-         > img {
-            width: 30%;
-            height: 30%;
-            margin-right: -5px;
-            margin-top: -2.5px;
-         }
-      }
+   .menuContainer .menuUl li {
+      text-align: center;
+   }
+   .menuContainer > .container-fluid .menuUl > li li {
+      float: none;
+   }
+   .icon-list {
+      display: flex;
+      justify-content: center;
    }
 }

@@ -4,8 +4,7 @@
 .worklist .listItem a:hover,
 #filter button a,
 #filter button,
-.page-link:not(:disabled):not(.disabled),
-.card-img {
+.page-link:not(:disabled):not(.disabled) {
    cursor: pointer;
 }
 //-------------------------- 繼承區 (@extend)

@@ -3,7 +3,7 @@
 .card-img-top {
    border-radius: 0px;
 }
-.card-columns {
+.web .card-columns {
    padding: 0;
    margin: 0 auto;
    -webkit-column-count: 2;
@@ -17,7 +17,7 @@
    }
 }
 @media (max-width: 768px) {
-   .card-columns {
+   .web .card-columns {
       -webkit-column-count: 1;
       -moz-column-count: 1;
       column-count: 1;

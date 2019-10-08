@@ -1,6 +1,6 @@
 function clickMenu() {
-   $('.navbarWrapper .flower>img').click(function() {
-      $(this).toggleClass('rotateflower');
+   $('.hamburger').click(function() {
+      $(this).toggleClass('is-active');
       if (!$('.menuContainer').hasClass('show')) {
          $('.menuContainer').addClass('show');
          console.log('1');
@@ -12,24 +12,13 @@ function clickMenu() {
 }
 
 function hoverYellowBlock() {
-   $('.menuUl>li:nth-child(-n+4)').hover(
+   $('.menuUl>li:nth-child(-n+3)').hover(
       function() {
          // console.log('uuuuu');
          var no = $(this).index();
          console.log(no);
          // prettier-ignore
          if (!$(this).hasClass('active')) {
-            $(this).children('span').addClass('activeYellow');
-            // 其他張BG圖淡出
-            $('.menuPattern>div').not($('.menuPattern>div').eq(no)).stop(true, true).fadeOut(200);
-            // 此BG圖淡入
-            $('.menuPattern>div').eq(no).stop(true, true).fadeIn(200).addClass('showPattern');
-
-            // 其他BG刪除active
-            $('.menuPattern>div').removeClass('active');
-            //此BG加入active
-            $('.menuPattern>div').eq(no).addClass('active');
-
             $(this).find('span').addClass('yellowBlock');
          }
       },
@@ -60,4 +49,11 @@ function addLoadEvent(func) {
          func();
       };
    }
+}
+// 取skill前的數字
+function skillItemNum() {
+   var skillItem = $('.skill-item');
+   skillItem.each(function(i, obj) {
+      $(this).prepend('<span>0' + (i + 1) + '</span>');
+   });
 }

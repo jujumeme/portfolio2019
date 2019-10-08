@@ -91,6 +91,11 @@
       height: 60%;
    }
 }
+@media (orientation: landscape) {
+   .gallery footer {
+      padding-top: 0;
+   }
+}
 @media (orientation: portrait) {
    .gallery .item:nth-of-type(1) {
       margin-bottom: $main-space2;

@@ -7,7 +7,7 @@
       <meta name="description" content="吳珮暄個人作品集網站" />
       <title>Julie wu Portfolio</title>
       <link rel="icon" href="image/common/favicon.ico" type="image/x-icon" />
-      <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC:400|Karla:700|Lobster&display=swap" rel="stylesheet" />
+      <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC:400,700,900|Karla:700|Source+Serif+Pro:700|&display=swap" rel="stylesheet" />
       <link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
       <link rel="stylesheet" href="style/css/style.css" />
    </head>
@@ -21,19 +21,169 @@
 
          <!--content-->
          <div class="container-fluid indexContainer">
-            <section class="main-visual container-fluid"></section>
-            <section class="about container-fluid"></section>
-            <section class="skill container-fluid"></section>
-            <section class="works-entrance container-fluid"></section>
-            <section class="gallery-entrance container-fluid"></section>
-         <footer></footer>
+            <section class="main-visual container-fluid ">
+               <div class=" main-visual-wrapper" data-hover-only="true" data-relative-input="true">
+                  <div class="main-visual-inner-bg row">
+                     <div class="main-visual-leaf-left col-2">
+                        <img src="./image/index/leaf2.png" alt="" />
+                     </div>
+                     <div class="main-visual-group col-8 row">
+                        <div class="col-lg-5 offset-1 main-visual-logo-big">
+                           <img src="./image/index/strawberry.png" alt="" />
+                        </div>
+
+                        <div class="col-lg-5 main-visual-title-julie">
+                           <img src="./image/index/index-title-02.svg" />
+                        </div>
+                     </div>
+                     <div class="main-visual-leaf-right col-lg-2">
+                        <img src="./image/index/leaf1.png" alt="" />
+                     </div>
+                     <div class="welcome col-lg-4">
+                        <img src="./image/index/welcome.svg" alt="" />
+                     </div>
+                  </div>
+               </div>
+            </section>
+
+            <section class="about container-fluid">
+               <div class="row container">
+                  <div class="about-content col-xl-5 col-md-6  col-12">
+                     <div class="main-title-wrapper">
+                        <h2 class="main-title highlight-wrapper">about<span class="highlight"></span></h2>
+                     </div>
+                     <p>
+                        畢業於實踐大學工業設計學系。在接觸網頁設計領域後感到十分有趣，它是雙向互動而非單一的提供資訊與美化。隨著人機介面互動成為趨勢，也因此開啟程式與美學的荊棘之路。在編寫過程中，偶爾會遇到困難，但在成功的那刻所得到的成就感是無可言喻的。此外，對日式網站風格十分欣賞，無論是視覺美感或創造力，常常讓人備感驚艷。
+                     </p>
+                  </div>
+                  <div class="me-wrapper offset-md-1 col-lg-2  col-md-3 col-8">
+                     <div data-tilt class="me-bg">
+                        <img src="./image/index/me.png" alt="" />
+                        <span>Hi</span>
+                     </div>
+                  </div>
+               </div>
+            </section>
+            <section class="skill container-fluid">
+               <div class="row container">
+                  <div class="skill-content">
+                     <div class="main-title-wrapper">
+                        <h2 class="main-title highlight-wrapper">programming<span class="highlight"></span></h2>
+                        <br />
+                        <h2 class="main-title highlight-wrapper">skill<span class="highlight"></span></h2>
+                     </div>
+                     <div class="skill-item-wrapper row">
+                        <div class="skill-item">
+                           <h4>CSS</h4>
+                           <p>基本網站架構與樣式編寫</p>
+                        </div>
+                        <div class="skill-item">
+                           <h4>框架</h4>
+                           <p>bootstrap框架套用</p>
+                        </div>
+                        <div class="skill-item">
+                           <h4>SASS</h4>
+                           <p>進階樣式寫法與基礎程式邏輯運用，提升編寫效率20%</p>
+                        </div>
+                        <div class="skill-item">
+                           <h4>RWD</h4>
+                           <p>響應式內容排版</p>
+                        </div>
+                        <div class="skill-item">
+                           <h4>jQuery</h4>
+                           <p>動畫效果撰寫、外掛套用與修改</p>
+                        </div>
+                        <div class="skill-item">
+                           <h4>GIT</h4>
+                           <p>基礎git指令、github運用(此網站即使用github為基礎的頁面)</p>
+                        </div>
+                        <div class="skill-item">
+                           <h4>AJAX</h4>
+                           <p>基礎資料匯入</p>
+                        </div>
+                        <div class="clearfix"></div>
+                     </div>
+                  </div>
+               </div>
+            </section>
+            <section class="works-entrance container-fluid">
+               <div class="row container-fluid">
+                  <div class="container">
+                     <div class="works-content col-lg-12">
+                        <div class="col-12 main-title-wrapper">
+                           <h2 class="main-title highlight-wrapper ">works<span class="highlight"></span></h2>
+                        </div>
+                        <div class="works-item-wrapper row">
+                           <div class="works-item">
+                              <a href="dynamic.html">
+                                 <img src="./image/index/works1.jpg" alt="" />
+                              </a>
+                           </div>
+                           <div class="works-item">
+                              <a href="walkintaipei.html">
+                                 <img src="./image/index/works2.jpg" alt="" />
+                              </a>
+                           </div>
+                           <div class="works-item">
+                              <a href="daydreamer.html">
+                                 <img src="./image/index/works3.jpg" alt="" />
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-12 buttonWrapper">
+                     <a href="works.html" class="button">more <span class="after"></span></a>
+                  </div>
+               </div>
+
+               <div class="checkered-bg container-fluid"></div>
+            </section>
+            <section class="gallery-entrance container">
+               <div class="row">
+                  <div class="col-12 main-title-wrapper">
+                     <h2 class="main-title highlight-wrapper ">gallery<span class="highlight"></span></h2>
+                  </div>
+                  <div class="row col-lg-9">
+                     <div class="card">
+                        <div>
+                           <img class="card-img-top" src="./image/index/artwork-entrance.jpg" alt="Card image cap" />
+                        </div>
+                        <div class="card-body">
+                           <h2 class="card-title">Artwork</h2>
+                           <div class="buttonWrapper">
+                              <a href="artwork.html" class="button">more <span class="after"></span></a>
+                           </div>
+                        </div>
+                     </div>
+
+                     <div class="card">
+                        <div>
+                           <img class="card-img-top" src="./image/index/photomanipulation-entrance.jpg" alt="Card image cap" />
+                        </div>
+
+                        <div class="card-body">
+                           <h2 class="card-title">Photo</h2>
+                           <h2 class="card-title">Manipulation</h2>
+                           <div class="buttonWrapper">
+                              <a href="photomanipulation.html" class="button">more <span class="after"></span></a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </section>
+            <footer></footer>
+         </div>
       </div>
       <script src="js/jquery-3.1.0.min.js"></script>
       <script src="js/load.js"></script>
+      <script src="js/tilt.jquery.js"></script>
       <script>
          $('.navbarWrapper .flower>img').click(function() {
             location.reload(true);
          });
+         skillItemNum();
       </script>
    </body>
 </html>
