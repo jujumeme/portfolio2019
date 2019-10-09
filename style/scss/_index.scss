@@ -170,8 +170,10 @@ $section-gutter-lg: $section-gutter-sm + $section-gutter * 6;
    position: relative;
 }
 .main-visual-group img {
-   position: relative;
+   position: absolute;
+   width: calc(100% - 30px);
    top: 50%;
+   left: 15px;
    transform: translateY(-50%);
 }
 .main-visual-title-julie img {
@@ -420,7 +422,7 @@ $section-gutter-lg: $section-gutter-sm + $section-gutter * 6;
    .main-visual-title-julie img {
       top: 0;
       transform: translateY(0);
-      margin-top: 20px;
+      margin-top: 30px;
    }
    .main-visual-leaf-left img {
       width: 150%;
@@ -532,6 +534,16 @@ $section-gutter-lg: $section-gutter-sm + $section-gutter * 6;
    .main-visual-group {
       padding: 0;
    }
+   .main-visual-group img {
+      width: 100%;
+      left: 0px;
+   }
+   .main-visual-logo-big img {
+      top: 65%;
+   }
+   .main-visual-title-julie img {
+      transform: translateY(0);
+   }
    .main-visual-inner-bg::before {
       @include mytriangle(75px, $light-pink, left-top, 1);
    }
@@ -543,7 +555,7 @@ $section-gutter-lg: $section-gutter-sm + $section-gutter * 6;
       @include highlight(15px, $main-yellow, 20px);
    }
    .welcome {
-      right: -26px;
+      right: -24px;
       padding: 0;
    }
    // about setting
@@ -594,9 +606,4 @@ $section-gutter-lg: $section-gutter-sm + $section-gutter * 6;
    .works-item {
       @include myitem(2, 40px, 0);
    }
-}
-
-// test
-.test-item > img {
-   box-shadow: $bg-shadow-size-lg $bg-shadow-size-lg 0px $main-pink, $bg-shadow-size-lg * -1 $bg-shadow-size-lg * -1 0px #fff;
 }
