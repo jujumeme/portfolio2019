@@ -337,7 +337,6 @@ $section-gutter-lg: $section-gutter-sm + $section-gutter * 6;
 }
 .works-item {
    @include myitem(3, 100px, 0);
-   border: 7px solid $light-pink;
    box-shadow: $bg-shadow-size-sm $bg-shadow-size-sm 0px $main-pink;
 }
 

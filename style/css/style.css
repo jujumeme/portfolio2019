@@ -1038,7 +1038,6 @@ footer {
 .works-item {
   width: calc((100% - (100px * (3 - 1) + 1px)) / 3);
   margin: 0 100px 0 0;
-  border: 7px solid #ffc8dc;
   -webkit-box-shadow: 7px 7px 0px #ff7bac;
           box-shadow: 7px 7px 0px #ff7bac;
 }
